@@ -1,0 +1,18 @@
+# Reference: https://docs.ellipsis.dev
+# Levix Labs code-review test bench — team style guide encoded as PR-review rules
+# (mirrors STYLE_GUIDE.md). Used to test Ellipsis's style-guide enforcement claim.
+version: 1.1
+pr_review:
+  auto_review_enabled: true
+  auto_summarize_pr: true
+  confidence_threshold: 0.7
+  rules:
+    - "Functions, methods, and variables must use snake_case, not camelCase"
+    - "Class names must use PascalCase"
+    - "No single-character names except short loop indices"
+    - "Every public function and method must have a docstring"
+    - "Public functions must include type hints on parameters and return values"
+    - "Never use print() in library code under taskflow/; use the logging module instead. print() is only allowed in taskflow/cli.py"
+    - "All SQL must use parameterized queries; never build SQL with string concatenation or f-strings containing user input"
+    - "No bare except:; catch specific exception types and never silently pass"
+    - "Never use mutable default arguments like [] or {}; use None and initialize inside the function"
