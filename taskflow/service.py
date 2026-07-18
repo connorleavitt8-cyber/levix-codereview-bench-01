@@ -27,6 +27,6 @@ class TaskService:
         cutoff = today + timedelta(days=within_days)
         result = []
         for t in self.open_tasks():
-            if t.due and t.due > today and t.due > cutoff:
+            if t.due and today <= t.due <= cutoff:
                 result.append(t)
         return result
